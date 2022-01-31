@@ -1,0 +1,4 @@
+---
+path: "/var/log/discord/"
+filename: "discord.log"
+token: "discord bot token goes here"

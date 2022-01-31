@@ -1,0 +1,16 @@
+[Unit]
+Description=Discord Logging Utility
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=1
+User=root
+ExecStart=/bin/discordlogger.py
+ExecReload=/bin/discordlogger.py
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
