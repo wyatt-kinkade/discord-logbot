@@ -27,6 +27,7 @@ def teefunc(i):
 
 @client.event
 async def on_ready():
+    await client.change_presence(status=discord.Status.invisible)
     log = 'We have logged in as {0.user}'.format(client)
     teefunc(log)
 
