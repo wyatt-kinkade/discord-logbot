@@ -3,8 +3,15 @@
 DATE=`date "+%F-%T"`
 FILEPATH='/var/log/discord/discord.log'
 
-mv "$FILEPATH" "$FILEPATH-$DATE"
+action () {
+mv "$2" "$2-$1"
 
-gzip "$FILEPATH.log-$DATE"
+gzip "$2-$1"
 
-echo "$FILEPATH-$DATE Archived"
+echo "$2-$1 Archived"
+}
+FILEPATH='/var/log/discord/discord.log'
+action "$DATE" "$FILEPATH"
+FILEPATH='/var/log/discord/discord_audit.log'
+action "$DATE" "$FILEPATH"
+
