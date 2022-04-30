@@ -25,11 +25,17 @@ def teefunc(i):
     f.write( i + "\n")
     f.close()
 
+def audit_teefunc(i):
+    print(i)
+    f = open(path + audit_log, "a")  # append mode
+    f.write( i + "\n")
+    f.close()
+
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.invisible)
     log = 'We have logged in as {0.user}'.format(client)
-    teefunc(log)
+    audit_teefunc(log)
 
 @client.event
 async def on_message(message):
@@ -114,5 +120,6 @@ settings = var_load()
 token = settings['token']
 path = settings['path']
 filename = settings['filename']
+audit_log = settings['audit_log']
 logdir()
 client.run(token)
