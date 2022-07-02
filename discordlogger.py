@@ -63,6 +63,9 @@ async def on_message(message):
 
     teefunc(log)
 
+    if "@everyone" in message.content:
+        await message.add_reaction('\U000026A0')
+
 @client.event
 async def on_message_delete(message):
     if message.author == client.user:
