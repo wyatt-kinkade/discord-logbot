@@ -100,7 +100,7 @@ async def on_message_edit(before, after):
     channel = before.channel
     author = before.author
     guild = before.guild
-    msg_datetime = after.edited_at
+    msg_datetime = datetime.now()
     time = msg_datetime.strftime("%m/%d/%Y, %H:%M:%S")
     msg_id = str(after.id)
     log = "[" + time + "]" + author.name + "#" + author.discriminator + " changed a post from '" + before_content + "' to '" + after_content + "' in " + channel.name + " in " + guild.name + " - Message ID: " + msg_id 
