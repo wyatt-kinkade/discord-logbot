@@ -1,35 +1,9 @@
 #!/usr/bin/python3
 import discord
-import random
-import os
-import yaml
 from datetime import datetime
+from discordloggerlibs.core_functions import *
 
 client = discord.Client()
-
-def var_load():
-    with open("/etc/discordlogger/settings.yaml", "r") as stream:
-        try:
-            settings = yaml.safe_load(stream)
-        except yaml.YAMLError as exc:
-            print(exc)
-    return settings
-
-def logdir():
-    if not os.path.isdir(path):
-        os.mkdir(path)
-
-def teefunc(i):
-    print(i)
-    f = open(path + filename, "a")  # append mode
-    f.write( i + "\n")
-    f.close()
-
-def audit_teefunc(i):
-    print(i)
-    f = open(path + audit_log, "a")  # append mode
-    f.write( i + "\n")
-    f.close()
 
 @client.event
 async def on_ready():
@@ -63,8 +37,6 @@ async def on_message(message):
 
     teefunc(log)
 
-    if "@everyone" in message.content:
-        await message.add_reaction('\U000026A0')
 
 @client.event
 async def on_message_delete(message):
