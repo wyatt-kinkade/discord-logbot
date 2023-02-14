@@ -5,7 +5,9 @@ import os
 import yaml
 from datetime import datetime
 
-client = discord.Client()
+intents=discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents=intents)
 
 def var_load():
     with open("/etc/discordlogger/settings.yaml", "r") as stream:
