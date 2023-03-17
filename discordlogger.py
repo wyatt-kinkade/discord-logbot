@@ -23,15 +23,13 @@ def logdir():
 
 def teefunc(i):
     print(i)
-    f = open(path + filename, "a")  # append mode
-    f.write( i + "\n")
-    f.close()
+    with open(path + filename, "a") as file: # append mode
+        file.write(f"{i} \n")
 
 def audit_teefunc(i):
     print(i)
-    f = open(path + audit_log, "a")  # append mode
-    f.write( i + "\n")
-    f.close()
+    with open(path + audit_log, "a") as file: # append mode
+        file.write(f"{i} \n")
 
 @client.event
 async def on_ready():
