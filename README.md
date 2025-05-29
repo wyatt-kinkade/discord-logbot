@@ -16,6 +16,7 @@ chmod +x archiver.sh
 chmod +x discordlogger.py
 sudo cp archiver.sh /bin/
 sudo cp discordlogger.py /bin/
+sudo mkdir /var/log/discord
 sudo mkdir /etc/discordlogger/
 sudo cp settings.yaml /etc/discordlogger/
 sudo cp discordlogger.service /etc/systemd/system/
